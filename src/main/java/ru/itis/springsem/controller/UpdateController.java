@@ -22,12 +22,11 @@ public class UpdateController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();
-        user.setLogin(userProfileForm.getProfile_login());
+        user.setFirstName(userProfileForm.getProfile_first_name());
+        user.setLastName(userProfileForm.getProfile_last_name());
         user.setEmail(userProfileForm.getProfile_email());
         UserDto userDto = UserDto.from(user);
-        if (userService.loginHasCorrectLength(userDto)) {
-            userService.update(userDto);
-        }
+        userService.update(userDto);
         return "redirect:/";
     }
 }

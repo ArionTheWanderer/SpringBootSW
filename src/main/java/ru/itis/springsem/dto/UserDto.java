@@ -15,7 +15,8 @@ import ru.itis.springsem.model.User;
 @Builder
 public class UserDto {
     private Long id;
-    private String login;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String role;
@@ -23,7 +24,8 @@ public class UserDto {
     public static UserDto from(User user) {
         return UserDto.builder()
                 .id(user.getId())
-                .login(user.getLogin())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .role(user.getRole().name())
@@ -32,7 +34,8 @@ public class UserDto {
 
     public static UserDto fromRegisterForm(UserRegisterForm userRegisterForm) {
         return UserDto.builder()
-                .login(userRegisterForm.getRegister_login())
+                .firstName(userRegisterForm.getRegister_first_name())
+                .lastName(userRegisterForm.getRegister_last_name())
                 .email(userRegisterForm.getRegister_email())
                 .password(userRegisterForm.getRegister_password())
                 .build();
@@ -47,7 +50,8 @@ public class UserDto {
 
     public static UserDto fromProfileForm(UserProfileForm userProfileForm) {
         return UserDto.builder()
-                .login(userProfileForm.getProfile_login())
+                .firstName(userProfileForm.getProfile_first_name())
+                .lastName(userProfileForm.getProfile_last_name())
                 .email(userProfileForm.getProfile_email())
                 .password(userProfileForm.getNew_pass())
                 .build();

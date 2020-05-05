@@ -16,8 +16,9 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    public static final int LOGIN_MIN_LENGTH = 5;
-    public static final int PASSWORD_MIN_LENGTH = 5;
+    private static final int FIRST_NAME_MIN_LENGTH = 5;
+    private static final int LAST_NAME_MIN_LENGTH = 5;
+    private static final int PASSWORD_MIN_LENGTH = 5;
 
     @Autowired
     private UserRepository userRepository;
@@ -32,7 +33,8 @@ public class UserServiceImpl implements UserService {
             String hashPassword = passwordEncoder.encode(userDto.getPassword());
 
             User user = User.builder()
-                    .login(userDto.getLogin())
+                    .firstName(userDto.getFirstName())
+                    .lastName(userDto.getLastName())
                     .email(userDto.getEmail())
                     .password(hashPassword)
                     .role(Role.USER)
@@ -45,17 +47,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @LoggableServiceMethod
-    public User add(UserDto userDto) {
+    public UserDto add(UserDto userDto) {
         User user = User.builder()
-                .login(userDto.getLogin())
+                .firstName(userDto.getFirstName())
+                .lastName(userDto.getLastName())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
                 .role(Role.valueOf(userDto.getRole()))
                 .build();
-        return userRepository.save(user);
+        userRepository.save(user);
+        return UserDto.from(user);
     }
 
     @Override
+    @LoggableServiceMethod
     public UserDto find(long id) {
         Optional<User> user = userRepository.findUserById(id);
         if (user.isPresent()) {
@@ -65,24 +70,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @LoggableServiceMethod
-    public User update(UserDto userDto) {
+    public UserDto update(UserDto userDto) {
         Optional<User> userCandidate = userRepository.findUserById(userDto.getId());
         if (userCandidate.isPresent()) {
-            User user = userCandidate.get();
-            user.setId(userDto.getId());
-            user.setLogin(userDto.getLogin());
-            user.setEmail(userDto.getEmail());
-            user.setPassword(userDto.getPassword());
-            user.setRole(Role.valueOf(userDto.getRole()));
-            return userRepository.save(user);
-        } else return new User();
+            /*if (validate(userDto)) {*/
+                User user = userCandidate.get();
+                user.setId(userDto.getId());
+                user.setFirstName(userDto.getFirstName());
+                user.setLastName(userDto.getLastName());
+                user.setEmail(userDto.getEmail());
+                user.setPassword(userDto.getPassword());
+                user.setRole(Role.valueOf(userDto.getRole()));
+                userRepository.save(user);
+                return UserDto.from(user);
+/*
+            } else throw new IllegalArgumentException("Data has not been validated");
+*/
+        } else throw new IllegalArgumentException("User not found");
     }
 
-    /*@Override
+    @Override
     public void delete(UserDto userDto) {
-        User user = userRepository.find(userDto.getId());
-        userRepository.delete(user);
-    }*/
+        Optional<User> user = userRepository.findById(userDto.getId());
+        user.ifPresent(value -> userRepository.delete(value));
+    }
 
     @Override
     public List<UserDto> getAll() {
@@ -93,6 +104,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @LoggableServiceMethod
     public UserDto get(String email, String password) {
         Optional<User> userCandidate = userRepository.findUserByEmail(email);
         if (userCandidate.isPresent()) {
@@ -106,26 +118,20 @@ public class UserServiceImpl implements UserService {
     @Override
     @LoggableServiceMethod
     public boolean validate(UserDto userDto) {
-        return (loginIsAvailable(userDto) && loginHasCorrectLength(userDto)
+        return (firstNameHasCorrectLength(userDto) && lastNameHasCorrectLength(userDto)
                 && emailIsAvailable(userDto) && passwordIsValid(userDto));
     }
 
-    @Override
-    public void filterByNickName(List<UserDto> userDtoList, String name) {
-        userDtoList.removeIf(userDto -> !userDto.getLogin().contains(name));
+    private boolean firstNameHasCorrectLength(UserDto userDto) {
+        return userDto.getFirstName().length() >= FIRST_NAME_MIN_LENGTH;
     }
 
-    @Override
-    public boolean loginHasCorrectLength(UserDto userDto) {
-        return userDto.getLogin().length() >= LOGIN_MIN_LENGTH;
+    private boolean lastNameHasCorrectLength(UserDto userDto) {
+        return userDto.getLastName().length() >= LAST_NAME_MIN_LENGTH;
     }
 
     private boolean emailIsAvailable(UserDto userDto) {
         return !userRepository.findUserByEmail(userDto.getEmail()).isPresent();
-    }
-
-    private boolean loginIsAvailable(UserDto userDto) {
-        return !userRepository.findUserByLogin(userDto.getLogin()).isPresent();
     }
 
     private boolean passwordIsValid(UserDto userDto) {

@@ -321,8 +321,12 @@
                                 <h4 class="heading__tertiary mb--30">Register</h4>
                                 <form th:action="@{/signUp}" class="form form--login" method="post">
                                     <div class="form__group mb--20">
-                                        <label class="form__label" for="register_login">Login <span class="required">*</span></label>
-                                        <input type="text" class="form__input" id="register_login" name="register_login">
+                                        <label class="form__label" for="register_first_name">First name <span class="required">*</span></label>
+                                        <input type="text" class="form__input" id="register_first_name" name="register_first_name">
+                                    </div>
+                                    <div class="form__group mb--20">
+                                        <label class="form__label" for="register_last_name">Last name <span class="required">*</span></label>
+                                        <input type="text" class="form__input" id="register_last_name" name="register_last_name">
                                     </div>
                                     <div class="form__group mb--20">
                                         <label class="form__label" for="register_email">Email <span class="required">*</span></label>

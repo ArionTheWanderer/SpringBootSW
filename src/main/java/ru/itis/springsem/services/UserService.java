@@ -9,12 +9,10 @@ public interface UserService {
 
     boolean signUp(UserDto userDto);
 
-    User add(UserDto user);
+    UserDto add(UserDto user);
     UserDto find(long id);
-    User update(UserDto user);
-    /*void delete(UserDto user);*/
-
-    boolean loginHasCorrectLength(UserDto userDto);
+    UserDto update(UserDto user);
+    void delete(UserDto user);
 
     List<UserDto> getAll();
 
@@ -22,5 +20,4 @@ public interface UserService {
 
     boolean validate(UserDto user);
 
-    void filterByNickName(List<UserDto> userDtoList, String name);
 }

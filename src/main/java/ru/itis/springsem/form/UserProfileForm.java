@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserProfileForm {
-    private String profile_login;
+    private String profile_first_name;
+    private String profile_last_name;
     private String profile_email;
     private String cur_pass;
     private String new_pass;

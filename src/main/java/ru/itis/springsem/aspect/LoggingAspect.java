@@ -27,7 +27,8 @@ public class LoggingAspect {
     public void logLoadUserByEmail(JoinPoint jp, UserDetailsImpl result) {
         String methodName = jp.getSignature().getName();
         logger.log(Level.INFO, "Метод " + methodName + " загрузил пользователя: email = "
-                + result.getUser().getEmail() + ", login = " + result.getUser().getLogin());
+                + result.getUser().getEmail() + ", firstName = " + result.getUser().getFirstName() +
+                ", lastName = " + result.getUser().getLastName());
     }
 
     @AfterThrowing(pointcut = "execution(public * ru.itis.springsem.security.details.UserDetailsServiceImpl.loadUserByUsername(..))")
@@ -44,5 +45,13 @@ public class LoggingAspect {
         String methodName = jp.getSignature().getName();
         logger.log(Level.INFO, "Метод " + methodName +
                 " вернул значение: " + result.toString());
+    }
+
+    @AfterThrowing(pointcut = "@annotation(ru.itis.springsem.aspect.LoggableServiceMethod)",
+            throwing = "ex")
+    public void logServiceAfterReturning(JoinPoint jp, Throwable ex) {
+        String methodName = jp.getSignature().getName();
+        logger.log(Level.INFO, "Метод " + methodName +
+                " бросил исключение: " + ex.toString() + "(" + ex.getMessage() + ")");
     }
 }
