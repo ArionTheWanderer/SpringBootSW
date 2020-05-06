@@ -2,10 +2,12 @@ package ru.itis.springsem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.annotation.ApplicationScope;
+import ru.itis.springsem.filter.CustomFilter;
 
 @SpringBootApplication
 public class Application {

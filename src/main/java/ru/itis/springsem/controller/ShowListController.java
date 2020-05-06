@@ -16,7 +16,6 @@ public class ShowListController {
 
     @Autowired UserService userService;
 
-    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/users")
     public ModelAndView getPage(@RequestParam(value = "filter", required = false) String subString) {
         List<UserDto> userDtoList = userService.getAll();
