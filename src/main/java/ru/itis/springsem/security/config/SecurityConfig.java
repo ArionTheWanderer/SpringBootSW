@@ -20,6 +20,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -37,14 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterAfter(new CustomFilter(), FilterSecurityInterceptor.class);
         http.authorizeRequests()
-                .antMatchers("/home", "/signUp").permitAll()
-                .antMatchers("/", "/update").authenticated()
-                .antMatchers("/users", "user/**", "/add**", "/update-user**").hasAuthority("ADMIN")
-                .anyRequest().permitAll()
-                .and()
-                .formLogin()
+                //.antMatchers("/home", "/signUp").permitAll()
+                //.antMatchers("/", "/update").authenticated()
+                //.antMatchers("/users", "user/**", "/add**", "/update-user**").hasAuthority("ADMIN")
+                .anyRequest().permitAll();
+        http.formLogin()
                 .usernameParameter("email")
                 .defaultSuccessUrl("/")
+                .failureUrl("/login?error")
                 .loginPage("/login")
                 .permitAll()
                 .and()

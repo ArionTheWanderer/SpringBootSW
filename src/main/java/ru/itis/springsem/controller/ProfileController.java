@@ -12,6 +12,7 @@ import static ru.itis.springsem.dto.UserDto.from;
 
 @Controller
 public class ProfileController {
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/")
     public String getProfilePage(ModelMap model, Authentication authentication) {
         if (authentication == null) {

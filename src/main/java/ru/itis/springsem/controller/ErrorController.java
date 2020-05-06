@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ErrorController {
+    @PreAuthorize("permitAll()")
     @GetMapping("/error")
     public String getErrorPage() {
         return "404";

@@ -21,18 +21,21 @@ public class EditController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("user/{id}/edit")
     public ModelAndView getEditPage(@PathVariable long id) {
         UserDto user = userService.find(id);
         return new ModelAndView("edit", "user", user);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/update-user")
     public String updateUser(@ModelAttribute("user") UserDto userDto) {
         userService.update(userDto);
         return "redirect:/users";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("user/{id}/delete")
     public String deleteUser(@PathVariable long id) {
         UserDto userDto = userService.find(id);

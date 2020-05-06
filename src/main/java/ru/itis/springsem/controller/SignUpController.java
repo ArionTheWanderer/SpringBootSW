@@ -17,6 +17,7 @@ public class SignUpController {
     @Autowired
     private UserService userService;
 
+    @PreAuthorize("permitAll()")
     @PostMapping("/signUp")
     public String signIn(UserRegisterForm userRegisterForm, ModelMap model) {
         UserDto userDto = UserDto.fromRegisterForm(userRegisterForm);

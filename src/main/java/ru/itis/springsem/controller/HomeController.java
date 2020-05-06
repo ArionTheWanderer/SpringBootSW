@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
+    @PreAuthorize("permitAll()")
     @GetMapping("/home")
     public String getHomePage() {
         return "index";
