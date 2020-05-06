@@ -8,7 +8,7 @@
     <artifactId>shop-spring</artifactId>
     <version>1.0</version>
     <name>spring-shop</name>
-    <description>Semestrov o4ka</description>
+    <description>Semestrov_o4ka</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
