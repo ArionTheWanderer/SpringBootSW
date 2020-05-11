@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">>
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -8,16 +8,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="shortcut icon" href="../static/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../static/assets/img/icon.png">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/img/icon.png">
 
     <!-- ************************* CSS Files ************************* -->
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="../static/assets/css/vendor.css">
+    <link rel="stylesheet" href="/assets/css/vendor.css">
 
     <!-- style css -->
-    <link rel="stylesheet" href="../static/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body> 
@@ -41,12 +41,12 @@
                     <div class="container">
                         <div class="header__main">
                             <div class="header__col header__left">
-                                <a href="index.html" class="logo">
+                                <a th:href="@{/home}" class="logo">
                                     <figure class="logo--normal">
-                                        <img src="../static/assets/img/logo/logo.png" alt="Logo">
+                                        <img src="/assets/img/logo/logo.png" alt="Logo">
                                     </figure>
                                     <figure class="logo--transparency">
-                                        <img src="../static/assets/img/logo/logo.png" alt="Logo">
+                                        <img src="/assets/img/logo/logo.png" alt="Logo">
                                     </figure>
                                 </a>
                             </div>
@@ -54,11 +54,11 @@
                                 <nav class="main-navigation d-none d-lg-block">
                                     <ul class="mainmenu">
                                         <li class="mainmenu__item menu-item-has-children position-relative">
-                                            <a href="index.html" class="mainmenu__link">Home</a>
+                                            <a th:href="@{/home}" class="mainmenu__link">Home</a>
                                             <!--<div class="inner-menu">
                                                 <ul class="sub-menu">
                                                     <li>
-                                                        <a href="index.html">Home One</a>
+                                                        <a th:href=@{/home>Home One</a>
                                                     </li>
                                                     <li>
                                                         <a href="index-02.html">Home Two</a>
@@ -67,7 +67,7 @@
                                             </div>-->
                                         </li>
                                         <li class="mainmenu__item menu-item-has-children position-static">
-                                            <a href="shop.html" class="mainmenu__link">Shop</a>
+                                            <a th:href="@{/shop}" class="mainmenu__link">Shop</a>
                                             <!--<div class="inner-menu megamenu-holder">
                                                 <ul class="megamenu">
                                                     <li>
@@ -77,7 +77,7 @@
                                                                 <a href="shop-fullwidth.html">Full Width</a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop.html">Left Sidebar</a>
+                                                                <a th:href=@{/shop>Left Sidebar</a>
                                                             </li>
                                                             <li>
                                                                 <a href="shop-right-sidebar.html">Right Sidebar</a>
@@ -108,7 +108,7 @@
                                                         <a class="megamenu-title" href="#">Product Details</a>
                                                         <ul>
                                                             <li>
-                                                                <a href="product-details.html">Tab Style 1</a>
+                                                                <a th:href=@{/product>Tab Style 1</a>
                                                             </li>
                                                             <li>
                                                                 <a href="product-details-tab-style-2.html">Tab Style 2</a>
@@ -158,13 +158,13 @@
                                             <div class="inner-menu">
                                                 <ul class="sub-menu">
                                                     <li>
-                                                        <a href="my-account.html">My Account</a>
+                                                        <a th:href="@{/}">My Account</a>
                                                     </li>
                                                     <li>
-                                                        <a href="checkout.html">Checkout</a>
+                                                        <a th:href="@{/checkout}">Checkout</a>
                                                     </li>
                                                     <li>
-                                                        <a href="cart.html">Cart</a>
+                                                        <a th:href="@{/cart}">Cart</a>
                                                     </li>
                                                     <!--<li>
                                                         <a href="compare.html">Compare</a>
@@ -223,14 +223,14 @@
                                             </div>
                                         </li>-->
                                         <li class="mainmenu__item">
-                                            <a href="contact-us.html" class="mainmenu__link">Contact Us</a>
+                                            <a th:href="@{/contact-us}" class="mainmenu__link">Contact Us</a>
                                         </li>
                                     </ul>
                                 </nav>
                             </div>
                             <div class="header__col header__right">
                                 <div class="toolbar-item d-none d-lg-block">
-                                    <a href="login-register.html" class="toolbar-btn">
+                                    <a th:href="@{/login}" class="toolbar-btn">
                                         <span>Login</span>
                                     </a>
                                 </div>
@@ -250,12 +250,12 @@
                                     </a>
                                 </div>-->
                                 <div class="toolbar-item mini-cart-btn">
-                                    <a href="#miniCart" class="toolbar-btn js-toolbar">
+                                    <a th:href="@{/cart}" class="toolbar-btn">
                                         <span class="mini-cart-btn__icon">
                                             <i class="flaticon-bag"></i>
                                         </span>
                                         <sup class="mini-cart-btn__count">
-                                            02
+                                            CountOfProducts
                                         </sup>
                                     </a>
                                 </div>
@@ -275,7 +275,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">Cart</h1>
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a th:href="@{/home}">Home</a></li>
                             <li class="current"><span>Cart</span></li>
                         </ul>
                     </div>
@@ -309,11 +309,11 @@
                                                     <tr>
                                                         <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="../static/assets/img/products/product-11-70x88.jpg" alt="Product Thumnail">
+                                                            <img src="/assets/img/products/product-11-70x88.jpg" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html">Golden Easy Spot Chair.</a>
+                                                                <a th:href="@{/product}">Golden Easy Spot Chair.</a>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
@@ -335,11 +335,11 @@
                                                     <tr>
                                                         <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="../static/assets/img/products/product-12-70x88.jpg" alt="Product Thumnail">
+                                                            <img src="/assets/img/products/product-12-70x88.jpg" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html">Golden Easy Spot Chair.</a>
+                                                                <a th:href="@{/product}">Golden Easy Spot Chair.</a>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
@@ -361,11 +361,11 @@
                                                     <tr>
                                                         <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="../static/assets/img/products/product-13-70x88.jpg" alt="Product Thumnail">
+                                                            <img src="/assets/img/products/product-13-70x88.jpg" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a href="product-details.html">Golden Easy Spot Chair.</a>
+                                                                <a th:href="@{/product}">Golden Easy Spot Chair.</a>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
@@ -537,7 +537,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="checkout.html" class="btn btn-size-md btn-shape-square btn-fullwidth">
+                                <a th:href="@{/checkout}" class="btn btn-size-md btn-shape-square btn-fullwidth">
                                     Proceed To Checkout
                                 </a>
                             </div>
@@ -556,7 +556,7 @@
                         <div class="footer-widget">
                             <div class="textwidget">
                                 <figure class="footer-logo mb--10">
-                                    <img src="../static/assets/img/logo/logo.png" alt="Logo">
+                                    <img src="/assets/img/logo/logo.png" alt="Logo">
                                 </figure>
                             </div>
                             <div class="address-widget">
@@ -571,31 +571,31 @@
                             <h3 class="widget-title mb--35 mb-sm--15">Store Menu</h3>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="shop.html">
+                                    <a th:href="@{/shop}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>Best Seller</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="shop.html">
+                                    <a th:href="@{/shop}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>New Arrivals</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="shop.html">
+                                    <a th:href="@{/shop}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>Men</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="shop.html">
+                                    <a th:href="@{/shop}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>Women</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="shop.html">
+                                    <a th:href="@{/shop}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>Accessories</span>
                                     </a>
@@ -664,7 +664,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="shop.html">
+                                        <a th:href="@{/shop}">
                                             <i class="fa fa-angle-right"></i>
                                             <span>Shopping &amp; Delivery</span>
                                         </a>
@@ -684,7 +684,7 @@
                             <h3 class="widget-title mb--35 mb-sm--15">My Account</h3>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="my-account.html">
+                                    <a th:href="@{/}">
                                         <i class="fa fa-angle-right"></i>
                                         <span>My Account</span>
                                     </a>
@@ -748,12 +748,12 @@
                 <div class="offcanvas-navigation__top">
                     <ul class="offcanvas-menu">
                         <li class="has-children">
-                            <a href="index.html">
+                            <a th:href="@{/home}">
                                 <span class="mm-text">Home</span>
                             </a>
                             <!--<ul class="sub-menu">
                                 <li class="has-children">
-                                    <a href="index.html">
+                                    <a th:href=@{/home>
                                         <span class="mm-text">Home One</span>
                                     </a>
                                 </li>
@@ -764,13 +764,13 @@
                                 </li>
                             </ul>-->
                         </li>
-                        <li>
-                            <a href="shop.html">
+                        <!--<li>
+                            <a th:href="@{/shop}">
                                 <span class="mm-text">New Arrivals</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="has-children">
-                            <a href="shop.html">
+                            <a th:href="@{/shop}">
                                 <span class="mm-text">Shop</span>
                             </a>
                             <!--<ul class="sub-menu">
@@ -785,7 +785,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="shop.html">
+                                            <a th:href=@{/shop>
                                                 <span class="mm-text">Left Sidebar</span>
                                             </a>
                                         </li>
@@ -827,7 +827,7 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="product-details.html">
+                                            <a th:href=@{/product>
                                                 <span class="mm-text">Tab Style 1</span>
                                             </a>
                                         </li>
@@ -894,17 +894,17 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="my-account.html">
+                                            <a th:href=@{/>
                                                 <span class="mm-text">My Account</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="cart.html">
+                                            <a th:href=@{/cart>
                                                 <span class="mm-text">Shopping Cart</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="checkout.html">
+                                            <a th:href=@{/checkout>
                                                 <span class="mm-text">Check Out</span>
                                             </a>
                                         </li>
@@ -933,17 +933,17 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="my-account.html">
+                                    <a th:href="@{/}">
                                         <span class="mm-text">My Account</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="checkout.html">
+                                    <a th:href="@{/checkout}">
                                         <span class="mm-text">Checkout</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="cart.html">
+                                    <a th:href="@{/cart}">
                                         <span class="mm-text">Cart</span>
                                     </a>
                                 </li>
@@ -965,7 +965,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="contact-us.html">
+                            <a th:href="@{/contact-us}">
                                 <span class="mm-text">Contact Us</span>
                             </a>
                         </li>
@@ -976,13 +976,13 @@
         <!-- OffCanvas Menu End -->
 
         <!-- Mini Cart Start -->
-        <aside class="mini-cart" id="miniCart">
+        <!--<aside class="mini-cart" id="miniCart">
             <div class="mini-cart-wrapper">
                 <div class="mini-cart__close">
                     <a href="#" class="btn-close"><i class="flaticon-cross"></i></a>
                 </div>
                 <div class="mini-cart-inner">
-                    <h3 class="mini-cart__heading mb--45">Shopping Cart</h3>
+                    <h3 class="mini-cart__heading mb&#45;&#45;45">Shopping Cart</h3>
                     <div class="mini-cart__content">
                         <ul class="mini-cart__list">
                             <li class="mini-cart__product">
@@ -990,10 +990,10 @@
                                     <i class="flaticon-cross"></i>
                                 </a>
                                 <div class="mini-cart__product-image">
-                                    <img src="../static/assets/img/products/product-11-90x90.jpg" alt="products">
+                                    <img src="/assets/img/products/product-11-90x90.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product-content">
-                                    <a class="mini-cart__product-title" href="product-details.html">Lexbaro Begadi</a>
+                                    <a class="mini-cart__product-title" th:href="@{/product}">Lexbaro Begadi</a>
                                     <span class="mini-cart__product-quantity">1 x $49.00</span>
                                 </div>
                             </li>
@@ -1002,10 +1002,10 @@
                                     <i class="flaticon-cross"></i>
                                 </a>
                                 <div class="mini-cart__product-image">
-                                    <img src="../static/assets/img/products/product-12-90x90.jpg" alt="products">
+                                    <img src="/assets/img/products/product-12-90x90.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product-content">
-                                    <a class="mini-cart__product-title" href="product-details.html">Lexbaro Begadi</a>
+                                    <a class="mini-cart__product-title" th:href="@{/product}">Lexbaro Begadi</a>
                                     <span class="mini-cart__product-quantity">1 x $49.00</span>
                                 </div>
                             </li>
@@ -1014,10 +1014,10 @@
                                     <i class="flaticon-cross"></i>
                                 </a>
                                 <div class="mini-cart__product-image">
-                                    <img src="../static/assets/img/products/product-13-90x90.jpg" alt="products">
+                                    <img src="/assets/img/products/product-13-90x90.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product-content">
-                                    <a class="mini-cart__product-title" href="product-details.html">Lexbaro Begadi</a>
+                                    <a class="mini-cart__product-title" th:href="@{/product}">Lexbaro Begadi</a>
                                     <span class="mini-cart__product-quantity">1 x $49.00</span>
                                 </div>
                             </li>
@@ -1027,13 +1027,13 @@
                             <span class="ammount">$98.00</span>
                         </div>
                         <div class="mini-cart__buttons">
-                            <a href="cart.html" class="btn btn-fullwidth btn-bg-primary mb--20">View Cart</a>
-                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
+                            <a th:href="@{/cart}" class="btn btn-fullwidth btn-bg-primary mb&#45;&#45;20">View Cart</a>
+                            <a th:href="@{/checkout}" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside>-->
         <!-- Mini Cart End -->
 
         <!-- Qicuk View Modal Start -->
@@ -1055,25 +1055,25 @@
                                 }'>
                                 <div class="item">
                                     <figure class="product-gallery__image">
-                                        <img src="../static/assets/img/products/product-03-270x300.jpg" alt="Product">
+                                        <img src="/assets/img/products/product-03-270x300.jpg" alt="Product">
                                         <span class="product-badge sale">Sale</span>
                                     </figure>
                                 </div>
                                 <div class="item">
                                     <figure class="product-gallery__image">
-                                        <img src="../static/assets/img/products/product-04-270x300.jpg" alt="Product">
+                                        <img src="/assets/img/products/product-04-270x300.jpg" alt="Product">
                                         <span class="product-badge sale">Sale</span>
                                     </figure>
                                 </div>
                                 <div class="item">
                                     <figure class="product-gallery__image">
-                                        <img src="../static/assets/img/products/product-05-270x300.jpg" alt="Product">
+                                        <img src="/assets/img/products/product-05-270x300.jpg" alt="Product">
                                         <span class="product-badge sale">Sale</span>
                                     </figure>
                                 </div>
                                 <div class="item">
                                     <figure class="product-gallery__image">
-                                        <img src="../static/assets/img/products/product-06-270x300.jpg" alt="Product">
+                                        <img src="/assets/img/products/product-06-270x300.jpg" alt="Product">
                                         <span class="product-badge sale">Sale</span>
                                     </figure>
                                 </div>
@@ -1147,10 +1147,10 @@
                                     </div>
                                     <div class="product-footer-meta">
                                         <p><span>Category:</span>
-                                            <a href="shop.html">Full Sweater</a>,
-                                            <a href="shop.html">SweatShirt</a>,
-                                            <a href="shop.html">Jacket</a>,
-                                            <a href="shop.html">Blazer</a>
+                                            <a th:href="@{/shop}">Full Sweater</a>,
+                                            <a th:href="@{/shop}">SweatShirt</a>,
+                                            <a th:href="@{/shop}">Jacket</a>,
+                                            <a th:href="@{/shop}">Blazer</a>
                                         </p>
                                     </div>
                                 </div>
@@ -1175,10 +1175,10 @@
     <!-- ************************* JS Files ************************* -->
 
     <!-- jQuery JS -->
-    <script src="../static/assets/js/vendor.js"></script>
+    <script src="/assets/js/vendor.js"></script>
 
     <!-- Main JS -->
-    <script src="../static/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

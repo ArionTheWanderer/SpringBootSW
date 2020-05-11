@@ -55,12 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // http.addFilterAfter(new CustomFilter(), FilterSecurityInterceptor.class);
-        http.authorizeRequests()
-                //.antMatchers("/home", "/signUp").permitAll()
-                //.antMatchers("/", "/update").authenticated()
-                //.antMatchers("/users", "user/**", "/add**", "/update-user**").hasAuthority("ADMIN")
-                .anyRequest().permitAll();
+        http.authorizeRequests().anyRequest().permitAll();
         http.formLogin()
                 .usernameParameter("email")
                 .defaultSuccessUrl("/")

@@ -250,12 +250,12 @@
                                     </a>
                                 </div>-->
                                 <div class="toolbar-item mini-cart-btn">
-                                    <a href="#miniCart" class="toolbar-btn js-toolbar">
+                                    <a th:href="@{/cart}" class="toolbar-btn">
                                         <span class="mini-cart-btn__icon">
                                             <i class="flaticon-bag"></i>
                                         </span>
                                         <sup class="mini-cart-btn__count">
-                                            02
+                                            CountOfProducts
                                         </sup>
                                     </a>
                                 </div>
@@ -565,11 +565,11 @@
                                 </li>
                             </ul>-->
                         </li>
-                        <li>
+                        <!--<li>
                             <a th:href="@{/shop}">
                                 <span class="mm-text">New Arrivals</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="has-children">
                             <a th:href="@{/shop}">
                                 <span class="mm-text">Shop</span>
@@ -777,13 +777,13 @@
         <!-- OffCanvas Menu End -->
 
         <!-- Mini Cart Start -->
-        <aside class="mini-cart" id="miniCart">
+        <!--<aside class="mini-cart" id="miniCart">
             <div class="mini-cart-wrapper">
                 <div class="mini-cart__close">
                     <a href="#" class="btn-close"><i class="flaticon-cross"></i></a>
                 </div>
                 <div class="mini-cart-inner">
-                    <h3 class="mini-cart__heading mb--45">Shopping Cart</h3>
+                    <h3 class="mini-cart__heading mb&#45;&#45;45">Shopping Cart</h3>
                     <div class="mini-cart__content">
                         <ul class="mini-cart__list">
                             <li class="mini-cart__product">
@@ -828,13 +828,13 @@
                             <span class="ammount">$98.00</span>
                         </div>
                         <div class="mini-cart__buttons">
-                            <a th:href="@{/cart}" class="btn btn-fullwidth btn-bg-primary mb--20">View Cart</a>
+                            <a th:href="@{/cart}" class="btn btn-fullwidth btn-bg-primary mb&#45;&#45;20">View Cart</a>
                             <a th:href="@{/checkout}" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside>-->
         <!-- Mini Cart End -->
 
         <!-- Qicuk View Modal Start -->

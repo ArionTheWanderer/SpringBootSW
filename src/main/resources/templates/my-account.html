@@ -249,12 +249,12 @@
                                     </a>
                                 </div>-->
                                 <div class="toolbar-item mini-cart-btn">
-                                    <a href="#miniCart" class="toolbar-btn js-toolbar">
+                                    <a th:href="@{/cart}" class="toolbar-btn">
                                         <span class="mini-cart-btn__icon">
                                             <i class="flaticon-bag"></i>
                                         </span>
                                         <sup class="mini-cart-btn__count">
-                                            02
+                                            CountOfProducts
                                         </sup>
                                     </a>
                                 </div>
@@ -294,14 +294,16 @@
                                     <a class="nav-link active" data-toggle="pill" role="tab" href="#dashboard" aria-controls="dashboard" aria-selected="true">Dashboard</a>
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#orders" aria-controls="orders" aria-selected="true">Orders</a>
                                     <!--<a class="nav-link" data-toggle="pill" role="tab" href="#downloads" aria-controls="downloads" aria-selected="true">Downloads</a>-->
+<!--
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#addresses" aria-controls="addresses" aria-selected="true">Addresses</a>
+-->
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#accountdetails" aria-controls="accountdetails" aria-selected="true">Account Details</a>
                                     <a class="nav-link" href="/logout">Logout</a>
                                 </div>
                                 <div class="user-dashboard-tab__content tab-content">
                                     <div class="tab-pane fade show active" id="dashboard">
-                                        <p>Hello <strong>John</strong> (not <strong>John</strong>? <a href="/logout">Log out</a>)</p>
-                                        <p>From your account dashboard. you can easily check &amp; view your <a href="">recent orders</a>, manage your <a href="">shipping and billing addresses</a> and <a href="">edit your password and account details</a>.</p>
+                                        <p>Hello <strong th:text="${userFromServer.firstName}"></strong> (not <strong th:text="${userFromServer.firstName}"></strong>? <a href="/logout">Log out</a>)</p>
+                                        <p>From your account dashboard. you can easily check &amp; view your recent orders, and edit your password and account details.</p>
                                     </div>
                                     <div class="tab-pane fade" id="orders">
                                         <div class="message-box mb--30 d-none">
@@ -370,25 +372,25 @@
                                             </table>
                                         </div>
                                     </div>-->
-                                    <div class="tab-pane fade" id="addresses">
-                                        <p class="mb--20">The following addresses will be used on the checkout page by default.</p>
+                                    <!--<div class="tab-pane fade" id="addresses">
+                                        <p class="mb&#45;&#45;20">The following addresses will be used on the checkout page by default.</p>
                                         <div class="row">
-                                            <div class="col-md-6 mb-sm--20">
+                                            <div class="col-md-6 mb-sm&#45;&#45;20">
                                                 <div class="text-block">
-                                                    <h4 class="mb--20">Billing address</h4>
+                                                    <h4 class="mb&#45;&#45;20">Billing address</h4>
                                                     <a href="">Edit</a>
                                                     <p>You have not set up this type of address yet.</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="text-block">
-                                                    <h4 class="mb--20">Shopping address</h4>
+                                                    <h4 class="mb&#45;&#45;20">Shopping address</h4>
                                                     <a href="">Edit</a>
                                                     <p>You have not set up this type of address yet.</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="tab-pane fade" id="accountdetails">
                                         <form th:action="@{/update}" class="form form--account" method="post">
                                             <div class="row mb--20">
@@ -672,11 +674,11 @@
                                 </li>
                             </ul>-->
                         </li>
-                        <li>
+                        <!--<li>
                             <a th:href="@{/shop}">
                                 <span class="mm-text">New Arrivals</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="has-children">
                             <a th:href="@{/shop}">
                                 <span class="mm-text">Shop</span>
@@ -884,13 +886,13 @@
         <!-- OffCanvas Menu End -->
 
         <!-- Mini Cart Start -->
-        <aside class="mini-cart" id="miniCart">
+        <!--<aside class="mini-cart" id="miniCart">
             <div class="mini-cart-wrapper">
                 <div class="mini-cart__close">
                     <a href="#" class="btn-close"><i class="flaticon-cross"></i></a>
                 </div>
                 <div class="mini-cart-inner">
-                    <h3 class="mini-cart__heading mb--45">Shopping Cart</h3>
+                    <h3 class="mini-cart__heading mb&#45;&#45;45">Shopping Cart</h3>
                     <div class="mini-cart__content">
                         <ul class="mini-cart__list">
                             <li class="mini-cart__product">
@@ -935,13 +937,13 @@
                             <span class="ammount">$98.00</span>
                         </div>
                         <div class="mini-cart__buttons">
-                            <a href="cart.html" class="btn btn-fullwidth btn-bg-primary mb--20">View Cart</a>
+                            <a href="cart.html" class="btn btn-fullwidth btn-bg-primary mb&#45;&#45;20">View Cart</a>
                             <a th:href="@{/checkout}" class="btn btn-fullwidth btn-bg-primary">Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside>-->
         <!-- Mini Cart End -->
 
         <!-- Qicuk View Modal Start -->

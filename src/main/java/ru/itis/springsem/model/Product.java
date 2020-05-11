@@ -22,6 +22,12 @@ public class Product {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "small_image")
+    private String smallImage;
+
+    @Column(name = "large_image")
+    private String largeImage;
+
     @Column(name = "weight")
     private Integer weight;
 
@@ -29,7 +35,7 @@ public class Product {
     private String description;
 
     @Column(name = "cost")
-    private String cost;
+    private Integer cost;
 
     @ManyToMany
     @JoinTable(name = "product_category",

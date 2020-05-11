@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl-4 col-sm-6 mb--50">
+    <div class="payne-product">
+        <div class="product__inner">
+            <div class="product__image">
+                <figure class="product__image--holder">
+                    <img src="/assets/img/products/product-03-270x300.jpg" alt="Product">
+                </figure>
+                <a th:href="@{/product}" class="product__overlay"></a>
+            </div>
+            <div class="product__info">
+                <div class="product__info--left">
+                    <h3 class="product__title">
+                        <a th:href="@{/product}">Lexbaro Begadi</a>
+                    </h3>
+                    <div class="product__price">
+                        <span class="money">132.00</span>
+                        <span class="sign">$</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

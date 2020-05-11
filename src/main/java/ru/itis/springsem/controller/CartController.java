@@ -5,10 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ErrorController {
-    @PreAuthorize("permitAll()")
-    @GetMapping("/error")
-    public String getErrorPage() {
-        return "404";
+public class CartController {
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/cart")
+    public String getCartPage() {
+        return "cart";
     }
 }
