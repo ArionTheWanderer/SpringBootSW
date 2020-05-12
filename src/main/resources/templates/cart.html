@@ -301,38 +301,46 @@
                                                         <th>&nbsp;</th>
                                                         <th class="text-left">Product</th>
                                                         <th>price</th>
+                                                        <th>size</th>
                                                         <th>quantity</th>
                                                         <th>total</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <th:block th:each="item : ${cart.items}">
                                                     <tr>
                                                         <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="/assets/img/products/product-11-70x88.jpg" alt="Product Thumnail">
+                                                            <img th:src="@{${'/assets/img/my.images/' + item.product.getSmallImage()}}" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a th:href="@{/product}">Golden Easy Spot Chair.</a>
+                                                                <a th:href="@{${'/product/' + item.product.id}}" th:text="${item.product.name}"></a>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">$49.00</span>
+                                                                <span class="money" th:text="${item.product.cost}"></span>
+                                                            </span>
+                                                        </td>
+                                                        <td class="product-price">
+                                                            <span class="product-price-wrapper">
+                                                                <span th:text="${item.size.size.name()}"></span>
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity">
                                                             <div class="quantity">
-                                                                <input type="number" class="quantity-input" name="qty" id="qty-1" value="1" min="1">
+                                                                <input type="number" class="quantity-input" name="qty" id="qty-1" th:value="${item.quantity}">
                                                             </div>
                                                         </td>
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">$49.00</span>
+                                                                <span class="money" th:text="${item.total}"></span>
                                                             </span>
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                </th:block>
+                                                    <!--<tr>
                                                         <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
                                                             <img src="/assets/img/products/product-12-70x88.jpg" alt="Product Thumnail">
@@ -383,7 +391,7 @@
                                                                 <span class="money">$49.00</span>
                                                             </span>
                                                         </td>
-                                                    </tr>
+                                                    </tr>-->
                                                 </tbody>
                                             </table>
                                         </div>  

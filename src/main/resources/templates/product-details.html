@@ -469,10 +469,28 @@
                                     <!--<span class="price-separator">-</span>
                                     <span class="money">$400.00</span>-->
                                 </div>
-                                <form action="#" class="variation-form mb--20">
-                                    <div class="product-size-variations d-flex align-items-center mb--15">
-                                        <p class="variation-label">Size:</p>
-                                        <div class="product-size-variation variation-wrapper">
+                                <form action="/add-to-cart" method="post" class="variation-form mb--20">
+<!--
+                                    <div class="product-size-variations d-flex align-items-center mb&#45;&#45;15">
+-->
+                                    <p class="variation-label">Size:</p>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary" th:if="${product.sizes.contains(sizes.get(0))}">
+                                            <input type="radio" name="size_id" id="size_s" autocomplete="off" value="1" checked> S
+                                        </label>
+                                        <label class="btn btn-secondary" th:if="${product.sizes.contains(sizes.get(1))}">
+                                            <input type="radio" name="size_id" id="size_m" autocomplete="off" value="2"> M
+                                        </label>
+                                        <label class="btn btn-secondary" th:if="${product.sizes.contains(sizes.get(2))}">
+                                            <input type="radio" name="size_id" id="size_l" autocomplete="off" value="3"> L
+                                        </label>
+                                        <label class="btn btn-secondary" th:if="${product.sizes.contains(sizes.get(3))}">
+                                            <input type="radio" name="size_id" id="size_xl" autocomplete="off" value="4"> XL
+                                        </label>
+                                    </div>
+                                    <input type="number" name="product_id" id="product_id" hidden th:value="${product.id}">
+
+                                        <!--<div class="product-size-variation variation-wrapper">
                                             <div class="variation" th:if="${product.sizes.contains(sizes.get(0))}">
                                                 <a class="product-size-variation-btn selected" data-toggle="tooltip"
                                                     data-placement="top" title="S">
@@ -497,30 +515,35 @@
                                                     <span class="product-size-variation-label">XL</span>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div>-->
+<!--
                                     </div>
+-->
+<!--
                                     <a href="" class="reset_variations">Clear</a>
-                                </form>
-                                <div
-                                    class="product-action d-flex flex-sm-row align-items-sm-center flex-column align-items-start mb--30">
-                                    <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
-                                        <label class="quantity-label" for="pro-qty">Quantity:</label>
-                                        <div class="quantity">
-                                            <input type="number" class="quantity-input" name="pro-qty" id="pro-qty"
-                                                value="1" min="1">
+-->
+
+                                    <div
+                                        class="product-action d-flex flex-sm-row align-items-sm-center flex-column align-items-start mb--30">
+                                        <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
+                                            <label class="quantity-label" for="pro_qty">Quantity:</label>
+                                            <div class="quantity">
+                                                <input type="number" class="quantity-input" name="pro_qty" id="pro_qty"
+                                                    value="1" min="1">
+                                            </div>
                                         </div>
+                                        <!--onclick="window.location.href='/cart'"-->
+                                        <button type="submit" class="btn btn-shape-square btn-size-sm"
+                                            value="Add to cart">
+                                            Add To Cart
+                                        </button>
                                     </div>
-                                    <button type="button" class="btn btn-shape-square btn-size-sm"
-                                        onclick="window.location.href='/cart'">
-                                        Add To Cart
-                                    </button>
-                                </div>
+                                </form>
                                 <div class="product-footer-meta">
                                     <p><span>Category:</span>
-                                        <a th:href="@{/shop}">Full Sweater</a>,
-                                        <a th:href="@{/shop}">SweatShirt</a>,
-                                        <a th:href="@{/shop}">Jacket</a>,
-                                        <a th:href="@{/shop}">Blazer</a>
+                                        <th:block th:each="category : ${product.categories}">
+                                            <a th:text="${category.category.name() + ' '}"></a>
+                                        </th:block>
                                     </p>
                                 </div>
                             </div>
@@ -566,11 +589,9 @@
                                                     <tr>
                                                         <th>Color</th>
                                                         <td>
-                                                            <a th:href="@{/shop}">Black</a>,
-                                                            <a th:href="@{/shop}">Gray</a>,
-                                                            <a th:href="@{/shop}">Red</a>,
-                                                            <a th:href="@{/shop}">Violet</a>,
-                                                            <a th:href="@{/shop}">Yellow</a>
+                                                        <th:block th:each="color : ${product.colors}">
+                                                            <a th:text="${color.color.name() + ' '}"></a>
+                                                        </th:block>
                                                         </td>
                                                     </tr>
                                                 </tbody>

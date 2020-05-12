@@ -1,18 +1,32 @@
 package ru.itis.springsem.model;
 
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-@SessionScope
-@Component
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Cart {
-    List<Product> productList;
+    /*HashMap<Long, ProductWithSize> productsWihSize;
 
-    List<Double> prices;
+    HashMap<Long, Integer> prices;
 
-    List<Integer> quantities;
+    HashMap<Long, Integer> quantities;
 
-    List<Double> totals;
+    HashMap<Long, Integer> totals;
+
+    HashMap<Long, ArrayList<Size>> sizes;*/
+
+    private List<CartItem> items;
+
+    private Integer totals;
+
+
 }

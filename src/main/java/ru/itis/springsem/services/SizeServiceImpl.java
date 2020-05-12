@@ -6,6 +6,7 @@ import ru.itis.springsem.model.Size;
 import ru.itis.springsem.repositories.SizeRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SizeServiceImpl implements SizeService {
@@ -16,5 +17,10 @@ public class SizeServiceImpl implements SizeService {
     @Override
     public List<Size> getAllSizes() {
         return sizeRepository.findAll();
+    }
+
+    @Override
+    public Optional<Size> getSizeById(Long id) {
+        return sizeRepository.findById(id);
     }
 }
