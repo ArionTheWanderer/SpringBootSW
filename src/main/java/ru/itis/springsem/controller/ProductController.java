@@ -7,8 +7,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.itis.springsem.model.Product;
+import ru.itis.springsem.model.Size;
 import ru.itis.springsem.services.ProductService;
+import ru.itis.springsem.services.SizeService;
 
+
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -16,12 +20,17 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    SizeService sizeService;
+
     @PreAuthorize("permitAll()")
     @GetMapping("/product/{id}")
     public String getProductPage(@PathVariable long id, ModelMap modelMap) {
         Optional<Product> product = productService.findById(id);
         if (product.isPresent()) {
+            List<Size> sizes = sizeService.getAllSizes();
             modelMap.addAttribute("product", product.get());
+            modelMap.addAttribute("sizes", sizes);
             return "product-details";
         }
         return "redirect:/404";

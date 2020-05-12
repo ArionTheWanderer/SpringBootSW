@@ -473,25 +473,25 @@
                                     <div class="product-size-variations d-flex align-items-center mb--15">
                                         <p class="variation-label">Size:</p>
                                         <div class="product-size-variation variation-wrapper">
-                                            <div class="variation" th>
+                                            <div class="variation" th:if="${product.sizes.contains(sizes.get(0))}">
                                                 <a class="product-size-variation-btn selected" data-toggle="tooltip"
                                                     data-placement="top" title="S">
                                                     <span class="product-size-variation-label">S</span>
                                                 </a>
                                             </div>
-                                            <div class="variation">
+                                            <div class="variation" th:if="${product.sizes.contains(sizes.get(1))}">
                                                 <a class="product-size-variation-btn" data-toggle="tooltip"
                                                     data-placement="top" title="M">
                                                     <span class="product-size-variation-label">M</span>
                                                 </a>
                                             </div>
-                                            <div class="variation">
+                                            <div class="variation" th:if="${product.sizes.contains(sizes.get(2))}">
                                                 <a class="product-size-variation-btn" data-toggle="tooltip"
                                                     data-placement="top" title="L">
                                                     <span class="product-size-variation-label">L</span>
                                                 </a>
                                             </div>
-                                            <div class="variation">
+                                            <div class="variation" th:if="${product.sizes.contains(sizes.get(3))}">
                                                 <a class="product-size-variation-btn" data-toggle="tooltip"
                                                     data-placement="top" title="XL">
                                                     <span class="product-size-variation-label">XL</span>
