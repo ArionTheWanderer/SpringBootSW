@@ -31,8 +31,14 @@ public class Product {
     @Column(name = "weight")
     private Integer weight;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "dimensions")
+    private String dimensions;
+
+    @Column(name = "short_description")
+    private String shortDescription;
+
+    @Column(name = "full_description")
+    private String fullDescription;
 
     @Column(name = "cost")
     private Integer cost;

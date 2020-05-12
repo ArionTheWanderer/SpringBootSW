@@ -20,7 +20,6 @@ public class ShopController {
     public String getShopPage(ModelMap modelMap) {
         List<Product> products = productService.getAllProducts();
         modelMap.addAttribute("products", products);
-        System.out.println(products.toString());
         return "shop";
     }
 }
