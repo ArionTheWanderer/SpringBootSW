@@ -462,10 +462,10 @@
                                         <span>Rated <strong class="rating">5.00</strong> out of 5</span>
                                     </div>
                                 </div>-->
-                                <h3 class="product-title mb--20" th:text="${product.getName()}"></h3>
-                                <p class="product-short-description mb--20" th:text="${product.getDescription()}"></p>
+                                <h3 class="product-title mb--20" th:text="${product.name}"></h3>
+                                <p class="product-short-description mb--20" th:text="${product.shortDescription}"></p>
                                 <div class="product-price-wrapper mb--25">
-                                    <span class="money" th:text="${'$' + product.getCost()}"></span>
+                                    <span class="money" th:text="${'$' + product.cost}"></span>
                                     <!--<span class="price-separator">-</span>
                                     <span class="money">$400.00</span>-->
                                 </div>
@@ -473,7 +473,7 @@
                                     <div class="product-size-variations d-flex align-items-center mb--15">
                                         <p class="variation-label">Size:</p>
                                         <div class="product-size-variation variation-wrapper">
-                                            <div class="variation">
+                                            <div class="variation" th>
                                                 <a class="product-size-variation-btn selected" data-toggle="tooltip"
                                                     data-placement="top" title="S">
                                                     <span class="product-size-variation-label">S</span>
@@ -547,32 +547,7 @@
                                     <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
                                         aria-labelledby="nav-description-tab">
                                         <div class="product-description">
-                                            <p>Lorem ipsum dolor sit amet, consec do eiusmod tincididunt ut labore et
-                                                dolore magna aliqua. Ut enim ad minim veniaLo ipsum dolor sit amet,
-                                                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                                dolore eu fugiat nulla paExcepteur sint occaecat cupidatat non proident,
-                                                sunt in culpa qui officia deserunt mollit anim id est laborum. iatis
-                                                unde omnis iste natus error sit voluptatem accusantium </p>
-
-                                            <p>Lorem ipsum dolor sit amet, consec do eiusmod tincididunt ut labore et
-                                                dolore magna aliqua. Ut enim ad minim veniaLo ipsum dolor sit amet,
-                                                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                                exercitation ullamco.</p>
-
-                                            <h5 class="product-description__heading">Characteristics :</h5>
-                                            <ul>
-                                                <li><i class="fa fa-circle"></i><span>Rsit amet, consectetur
-                                                        adipisicing elit, sed do eiusmod tempor inc.</span></li>
-                                                <li><i class="fa fa-circle"></i><span>sunt in culpa qui officia
-                                                        deserunt mollit anim id est laborum. </span></li>
-                                                <li><i class="fa fa-circle"></i><span>Lorem ipsum dolor sit amet,
-                                                        consec do eiusmod tincididu. </span></li>
-                                            </ul>
-
+                                            <p th:text="${product.fullDescription}"></p>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-info" role="tabpanel"
@@ -582,11 +557,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <th>Weight</th>
-                                                        <td>57 kg</td>
+                                                        <td th:text="${product.weight}"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Dimensions</th>
-                                                        <td>160 × 152 × 110 cm</td>
+                                                        <td th:text="${product.dimensions} + ' cm'"></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Color</th>

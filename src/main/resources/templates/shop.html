@@ -323,30 +323,30 @@
                             </div>-->
                             <div class="shop-products">
                                 <div class="row">
-                                    <!--<div class="col-xl-4 col-sm-6 mb&#45;&#45;50" th:each="product : ${products}">
+                                    <div class="col-xl-4 col-sm-6 mb--50" th:each="product : ${products}">
                                         <div class="payne-product">
                                             <div class="product__inner">
                                                 <div class="product__image">
-                                                    <figure class="product__image&#45;&#45;holder">
-                                                        &lt;!&ndash;th:src="@{images/{imageName}(imageName = ${product.getImageName()})}"&ndash;&gt;
+                                                    <figure class="product__image--holder">
+                                                        <!--th:src="@{images/{imageName}(imageName = ${product.getImageName()})}"-->
                                                         <img th:src="@{${'assets/img/my.images/' + product.largeImage}}" alt="Product"/>
                                                     </figure>
-                                                    <a th:href="@{/product/{id}(id = ${product.getId()})}" class="product__overlay"></a>
+                                                    <a th:href="@{/product/{id}(id = ${product.id})}" class="product__overlay"></a>
                                                 </div>
                                                 <div class="product__info">
-                                                    <div class="product__info&#45;&#45;left">
+                                                    <div class="product__info--left">
                                                         <h3 class="product__title">
-                                                            <a th:href="@{/product/{id}(id = ${product.getId()})}" th:text="${product.getName()}"></a>
+                                                            <a th:href="@{/product/{id}(id = ${product.id})}" th:text="${product.name}"></a>
                                                         </h3>
                                                         <div class="product__price">
-                                                            <span class="money" th:text="${product.getCost()}"></span>
+                                                            <span class="money" th:text="${product.cost}"></span>
                                                             <span class="sign">$</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </div>
                             </div>
                             <!--<nav class="pagination-wrap">
@@ -418,7 +418,7 @@
                                         <a th:href="@{/shop}" class="brown">brown</a>
                                         <a th:href="@{/shop}" class="blue">blue</a>
                                         <a th:href="@{/shop}" class="cholate">cholate</a>
-                                        <a th:href="@{/shop}" class="copper">copper</a>
+                                        <!--<a th:href="@{/shop}" class="copper">copper</a>-->
                                         <a th:href="@{/shop}" class="gray">grey</a>
                                     </div>
                                 </div>
