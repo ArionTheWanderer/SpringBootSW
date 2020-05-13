@@ -4,6 +4,7 @@ import ru.itis.springsem.dto.UserDto;
 import ru.itis.springsem.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -15,6 +16,10 @@ public interface UserService {
     void delete(UserDto user);
 
     List<UserDto> getAll();
+
+    void save(User user);
+
+    User getUserByEmail(String email);
 
     UserDto get(String login, String password);
 

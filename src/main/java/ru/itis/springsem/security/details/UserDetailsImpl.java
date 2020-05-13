@@ -1,5 +1,7 @@
 package ru.itis.springsem.security.details;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,11 +10,12 @@ import ru.itis.springsem.model.User;
 import java.util.Collection;
 import java.util.Collections;
 
+@NoArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
     private User user;
 
-    UserDetailsImpl(User user) {
+    public UserDetailsImpl(User user) {
         this.user = user;
     }
 

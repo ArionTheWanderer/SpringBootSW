@@ -104,6 +104,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        Optional<User> userCandidate = userRepository.findUserByEmail(email);
+        return userCandidate.orElse(null);
+    }
+
+
+
+    @Override
     @LoggableServiceMethod
     public UserDto get(String email, String password) {
         Optional<User> userCandidate = userRepository.findUserByEmail(email);
