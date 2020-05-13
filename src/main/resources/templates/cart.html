@@ -307,35 +307,35 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <th:block th:each="item : ${cart.items}">
+                                                <th:block th:each="itemQuan : ${cart.itemsQuan}">
                                                     <tr>
                                                         <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img th:src="@{${'/assets/img/my.images/' + item.product.getSmallImage()}}" alt="Product Thumnail">
+                                                            <img th:src="@{${'/assets/img/my.images/' + itemQuan.cartItem.product.smallImage}}" alt="Product Thumnail">
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
-                                                                <a th:href="@{${'/product/' + item.product.id}}" th:text="${item.product.name}"></a>
+                                                                <a th:href="@{${'/product/' + itemQuan.cartItem.product.id}}" th:text="${itemQuan.cartItem.product.name}"></a>
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money" th:text="${item.product.cost}"></span>
+                                                                <span class="money" th:text="${itemQuan.cartItem.product.cost}"></span>
                                                             </span>
                                                         </td>
                                                         <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span th:text="${item.size.size.name()}"></span>
+                                                                <span th:text="${itemQuan.cartItem.size.size.name()}"></span>
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity">
                                                             <div class="quantity">
-                                                                <input type="number" class="quantity-input" name="qty" id="qty-1" th:value="${item.quantity}">
+                                                                <input type="number" class="quantity-input" name="qty" id="qty-1" th:value="${itemQuan.quantity}">
                                                             </div>
                                                         </td>
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money" th:text="${item.total}"></span>
+                                                                <span class="money" th:text="${itemQuan.total}"></span>
                                                             </span>
                                                         </td>
                                                     </tr>

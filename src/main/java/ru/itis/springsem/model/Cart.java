@@ -24,7 +24,7 @@ public class Cart {
 
     HashMap<Long, ArrayList<Size>> sizes;*/
 
-    private List<CartItem> items;
+    private List<CartItemQuan> itemsQuan;
 
     private Integer totals;
 

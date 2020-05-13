@@ -10,11 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CartItem {
-    public static Long ITEMS_ID = 0L;
-
-    Long id;
     Product product;
-    Integer quantity;
-    Integer total;
     Size size;
+
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "product=" + product.getName() + product.getCost() + " " + product.getDimensions()
+                + " " + product.getFullDescription() + " " + product.getShortDescription() + product.getId().toString() +
+                ", size=" + size.getSize().name() +
+                '}';
+    }
 }

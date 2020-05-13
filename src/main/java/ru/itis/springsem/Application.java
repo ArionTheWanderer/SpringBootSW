@@ -10,6 +10,7 @@ import org.springframework.web.context.annotation.ApplicationScope;
 import org.springframework.web.context.annotation.SessionScope;
 import ru.itis.springsem.model.Cart;
 import ru.itis.springsem.model.CartItem;
+import ru.itis.springsem.model.CartItemQuan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class Application {
     @Bean
     @SessionScope
     public Cart cart() {
-        List<CartItem> items = new ArrayList<>();
+        List<CartItemQuan> items = new ArrayList<>();
         return new Cart(items, 0);
     }
 
