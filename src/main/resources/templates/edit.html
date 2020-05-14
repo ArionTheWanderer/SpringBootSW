@@ -9,8 +9,8 @@
     <div th:text="${user.id}"></div>
     <input name="id" type="hidden" th:value="${user.id}">
     <input name="email" type="text" th:value="${user.email}" readonly>
-    <input name="first_name" type="text" th:value="${user.firstName}" readonly>
-    <input name="last_name" type="text" th:value="${user.lastName}" readonly>
+    <input name="firstName" type="text" th:value="${user.firstName}" readonly>
+    <input name="lastName" type="text" th:value="${user.lastName}" readonly>
     <input name="password" type="text" th:value="${user.password}" readonly>
     <select name="role" th:value="${user.role}">
         <option>USER</option>

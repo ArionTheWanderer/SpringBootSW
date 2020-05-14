@@ -329,8 +329,8 @@
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity">
-                                                            <div class="quantity">
-                                                                <input type="number" class="quantity-input" name="qty" id="qty-1" th:value="${itemQuan.quantity}">
+                                                            <div class="product-price-wrapper">
+                                                                <span th:text="${itemQuan.quantity}"></span>
                                                             </div>
                                                         </td>
                                                         <td class="product-total-price">
@@ -416,20 +416,20 @@
                                 <div class="cart-totals">
                                     <h5 class="font-size-14 font-bold mb--15">Cart totals</h5>
                                     <div class="cart-calculator">
-                                        <div class="cart-calculator__item">
-                                            <div class="cart-calculator__item--head">
+                                        <!--<div class="cart-calculator__item">
+                                            <div class="cart-calculator__item&#45;&#45;head">
                                                 <span>Subtotal</span>
                                             </div>
-                                            <div class="cart-calculator__item--value">
+                                            <div class="cart-calculator__item&#45;&#45;value">
                                                 <span>$196.00</span>
                                             </div>
-                                        </div>
-                                        <div class="cart-calculator__item">
-                                            <div class="cart-calculator__item--head">
+                                        </div>-->
+                                        <!--<div class="cart-calculator__item">
+                                            <div class="cart-calculator__item&#45;&#45;head">
                                                 <span>Shipping</span>
                                             </div>
-                                            <div class="cart-calculator__item--value">
-                                                <span>Flat rate: $20.00</span>
+                                            <div class="cart-calculator__item&#45;&#45;value">
+                                                <span>Flat rate: $20.00</span>-->
                                                 <!--<div class="shipping-calculator-wrap">
                                                     <a href="#shipping_calculator" class="expand-btn">Calculate Shipping</a>
                                                     <form id="shipping_calculator" class="form shipping-calculator-form hide-in-default">
@@ -531,15 +531,15 @@
                                                         </div>
                                                     </form>
                                                 </div>-->
-                                            </div>
-                                        </div>
+                                        <!--    </div>
+                                        </div>-->
                                         <div class="cart-calculator__item order-total">
                                             <div class="cart-calculator__item--head">
                                                 <span>Total</span>
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">$226.00</span>
+                                                    <span class="money" th:text="${'$' + cart.totals}"></span>
                                                 </span>
                                             </div>
                                         </div>

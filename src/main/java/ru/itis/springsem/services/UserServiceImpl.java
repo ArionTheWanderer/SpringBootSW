@@ -73,7 +73,6 @@ public class UserServiceImpl implements UserService {
     public UserDto update(UserDto userDto) {
         Optional<User> userCandidate = userRepository.findUserById(userDto.getId());
         if (userCandidate.isPresent()) {
-            /*if (validate(userDto)) {*/
                 User user = userCandidate.get();
                 user.setId(userDto.getId());
                 user.setFirstName(userDto.getFirstName());
@@ -83,9 +82,6 @@ public class UserServiceImpl implements UserService {
                 user.setRole(Role.valueOf(userDto.getRole()));
                 userRepository.save(user);
                 return UserDto.from(user);
-/*
-            } else throw new IllegalArgumentException("Data has not been validated");
-*/
         } else throw new IllegalArgumentException("User not found");
     }
 

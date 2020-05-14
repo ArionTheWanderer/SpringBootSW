@@ -33,6 +33,7 @@ public class CustomFilter extends GenericFilterBean {
                 if (user.getRole().equals(Role.ADMIN)) {
                     System.out.println("Proceed request");
                     filterChain.doFilter(servletRequest, servletResponse);
+                    return;
                 }
             }
         }

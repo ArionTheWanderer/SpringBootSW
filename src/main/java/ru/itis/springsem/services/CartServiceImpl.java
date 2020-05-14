@@ -38,6 +38,11 @@ public class CartServiceImpl implements CartService {
                         itemCandidate.getSize().getSize().name().equals(cartItem.getSize().getSize().name())) {
                     // System.out.println("ПОСЛЕ УСЛОВИЯ");
                     cartItemQuan.setQuantity(cartItemQuan.getQuantity() + productDto.getPro_qty());
+                    Integer oldTotal = cartItemQuan.getTotal();
+                    cartItemQuan.setTotal(oldTotal + itemCandidate.getProduct().getCost() * productDto.getPro_qty());
+                    Integer totals = cart.getTotals();
+                    totals = totals + itemCandidate.getProduct().getCost() * productDto.getPro_qty();
+                    cart.setTotals(totals);
                     f = true;
                     // System.out.println("AAAA" + cart.getItemsQuan().size());
                     break;
