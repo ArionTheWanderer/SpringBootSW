@@ -39,6 +39,9 @@ public class BillingDetails {
     @Column(name = "order_notes")
     private String orderNotes;
 
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
     @OneToOne
     @MapsId
     @JoinColumn(name = "order_id")

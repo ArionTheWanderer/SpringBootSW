@@ -20,8 +20,7 @@ public class Order {
     private Long id;
 
     @Column(name = "date")
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    private String date;
 
     @Column(name = "status")
     @Enumerated(value = EnumType.STRING)

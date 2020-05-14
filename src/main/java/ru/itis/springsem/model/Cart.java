@@ -28,5 +28,8 @@ public class Cart {
 
     private Integer totals;
 
-
+    public void clear() {
+        itemsQuan.clear();
+        totals = 0;
+    }
 }
