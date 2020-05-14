@@ -254,9 +254,8 @@
                                         <span class="mini-cart-btn__icon">
                                             <i class="flaticon-bag"></i>
                                         </span>
-                                        <sup class="mini-cart-btn__count">
-                                            CountOfProducts
-                                        </sup>
+                                        <sup th:if="${authentication != null}" class="mini-cart-btn__count" th:text="${cart.itemsQuan.size()}"></sup>
+                                        <sup th:unless="${authentication != null}" class="mini-cart-btn__count">0</sup>
                                     </a>
                                 </div>
                             </div>
