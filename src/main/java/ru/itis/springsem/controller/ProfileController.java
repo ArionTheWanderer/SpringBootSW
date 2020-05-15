@@ -8,7 +8,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.itis.springsem.dto.UserDto;
 import ru.itis.springsem.model.Cart;
+import ru.itis.springsem.model.Order;
+import ru.itis.springsem.repositories.OrderRepository;
 import ru.itis.springsem.security.details.UserDetailsImpl;
+
+import java.util.List;
 
 import static ru.itis.springsem.dto.UserDto.from;
 
@@ -16,6 +20,9 @@ import static ru.itis.springsem.dto.UserDto.from;
 public class ProfileController {
     @Autowired
     Cart cart;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/")
@@ -25,6 +32,8 @@ public class ProfileController {
         }*/
         UserDetailsImpl details = (UserDetailsImpl)authentication.getPrincipal();
         UserDto userFromServer = from(details.getUser());
+        List<Order> orders = orderRepository.findAllByOwner(details.getUser());
+        model.addAttribute("orders", orders);
         model.addAttribute("cart", cart);
         model.addAttribute("userFromServer", userFromServer);
         return "my-account";

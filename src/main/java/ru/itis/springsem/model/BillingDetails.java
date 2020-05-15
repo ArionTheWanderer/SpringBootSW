@@ -1,15 +1,13 @@
 package ru.itis.springsem.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "order")
 @Builder
 @Entity
 @Table(name = "billing_details")

@@ -321,21 +321,24 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td class="wide-column">September 19, 2018</td>
-                                                        <td>Processing</td>
-                                                        <td class="wide-column">$49.00 for 1 item</td>
-                                                        <td><a href="product-details.html" class="btn">View</a></td>
-                                                    </tr>
-                                                    <tr>
+                                                    <th:block th:each="order, count : ${orders}">
+                                                        <tr>
+                                                            <td th:text="${count.count}"></td>
+                                                            <td class="wide-column" th:text="${order.date}"></td>
+                                                            <td th:text="${order.status}"></td>
+                                                            <td class="wide-column" th:text="${order.total}"></td>
+                                                            <td><a th:href="${'/order-details/' + order.id}" class="btn">View</a></td>
+                                                        </tr>
+                                                    </th:block>
+                                                </tbody>
+                                                    <!--<tr>
                                                         <td>2</td>
                                                         <td class="wide-column">September 19, 2018</td>
                                                         <td>Processing</td>
                                                         <td class="wide-column">$49.00 for 1 item</td>
                                                         <td><a href="product-details.html" class="btn">View</a></td>
                                                     </tr>
-                                                </tbody>
+                                                </tbody>-->
                                             </table>
                                         </div>
                                     </div>

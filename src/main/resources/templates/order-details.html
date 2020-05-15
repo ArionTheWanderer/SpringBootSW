@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details</title>
+</head>
+<body>
+<div>
+    <div th:text="${'Product name = ' + order.product.name}">
+    </div>
+    <div th:text="${'Product cost = ' + order.product.cost}">
+    </div>
+    <div th:text="${'Date of buying = ' + order.date}">
+    </div>
+    <div th:text="${'Order totals = ' + order.total}">
+    </div>
+    <div th:text="${'Product Status = ' + order.status}">
+    </div>
+    <div th:text="${'Billing details: country = ' +
+    order.billingDetails.country + ', city = ' +
+    order.billingDetails.city + ', region = ' +
+    order.billingDetails.region + ', street and house = ' +
+    order.billingDetails.streetAndHouse + ', apartment = ' +
+    order.billingDetails.apartment}">
+    </div>
+    <div th:text="${'Phone = ' + order.billingDetails.phone}">
+    </div>
+    <div th:text="${'Payment method = ' + order.billingDetails.paymentMethod}">
+    </div>
+    <div th:text="${'Order notes = ' + order.billingDetails.orderNotes}">
+    </div>
+    <form method="get" th:action="'/'">
+        <input type="submit" value="Back to profile">
+    </form>
+    <!--<a th:action="/">Back to profile</a>-->
+</div>
+</body>
+</html>
