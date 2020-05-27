@@ -329,7 +329,7 @@
                                                 <div class="product__image">
                                                     <figure class="product__image--holder">
                                                         <!--th:src="@{images/{imageName}(imageName = ${product.getImageName()})}"-->
-                                                        <img th:src="@{${'assets/img/my.images/' + product.largeImage}}" alt="Product"/>
+                                                        <img th:src="@{${'/assets/img/my.images/' + product.largeImage}}" alt="Product"/>
                                                     </figure>
                                                     <a th:href="@{/product/{id}(id = ${product.id})}" class="product__overlay"></a>
                                                 </div>
@@ -365,6 +365,16 @@
                                 <div class="shop-widget mb--40">
                                     <h3 class="widget-title mb--25">Category</h3>
                                     <ul class="widget-list category-list">
+                                        <th:block th:each="category : ${categories}">
+                                            <li>
+                                                <a th:href="@{${'/filter/category/' + category.category.name()}}">
+                                                    <span class="category-title" th:text="${category.category.name()}"></span>
+                                                    <i class="fa fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                        </th:block>
+                                    </ul>
+                                    <!--<ul class="widget-list category-list">
                                         <li>
                                             <a th:href="@{/shop}">
                                                 <span class="category-title">Winter Collection</span>
@@ -407,23 +417,22 @@
                                                 <i class="fa fa-angle-double-right"></i>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </div>
                                 <div class="shop-widget mb--40">
                                     <h3 class="widget-title mb--30">Color</h3>
                                     <div class="widget-color">
-                                        <a th:href="@{/shop}" class="red">Red</a>
-                                        <a th:href="@{/shop}" class="pink">Pink</a>
-                                        <a th:href="@{/shop}" class="black">black</a>
-                                        <a th:href="@{/shop}" class="brown">brown</a>
-                                        <a th:href="@{/shop}" class="blue">blue</a>
-                                        <a th:href="@{/shop}" class="cholate">cholate</a>
-                                        <!--<a th:href="@{/shop}" class="copper">copper</a>-->
-                                        <a th:href="@{/shop}" class="gray">grey</a>
+                                        <a th:href="@{'/filter/color/' + RED}" class="red">Red</a>
+                                        <a th:href="@{'/filter/color/' + PINK}" class="pink">Pink</a>
+                                        <a th:href="@{'/filter/color/' + BLACK}" class="black">black</a>
+                                        <a th:href="@{'/filter/color/' + BROWN}" class="brown">brown</a>
+                                        <a th:href="@{'/filter/color/' + BLUE}" class="blue">blue</a>
+                                        <a th:href="@{'/filter/color/' + CHOLATE}" class="cholate">cholate</a>
+                                        <a th:href="@{'/filter/color/' + GREY}" class="gray">grey</a>
                                     </div>
                                 </div>
-                                <div class="shop-widget mb--40">
-                                    <h3 class="widget-title mb--25">Price</h3>
+                                <!--<div class="shop-widget mb&#45;&#45;40">
+                                    <h3 class="widget-title mb&#45;&#45;25">Price</h3>
                                     <ul class="widget-list price-list">
                                         <li>
                                             <a th:href="@{/shop}">
@@ -444,7 +453,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div>-->
                                 <!--<div class="shop-widget mb&#45;&#45;40">
                                     <h3 class="widget-title mb&#45;&#45;25">Brand</h3>
                                     <ul class="widget-list brand-list">

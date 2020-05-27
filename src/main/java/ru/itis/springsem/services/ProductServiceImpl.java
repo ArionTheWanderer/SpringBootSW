@@ -2,9 +2,12 @@ package ru.itis.springsem.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.itis.springsem.model.Category;
+import ru.itis.springsem.model.Color;
 import ru.itis.springsem.model.Product;
 import ru.itis.springsem.repositories.ProductRepository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,8 +17,13 @@ public class ProductServiceImpl implements ProductService {
     ProductRepository productRepository;
 
     @Override
-    public void filterByCategory() {
+    public List<Product> getByColor(Color color) {
+        return productRepository.findAllByColors(color);
+    }
 
+    @Override
+    public List<Product> getByCategory(Category category) {
+        return productRepository.findAllByCategories(category);
     }
 
     @Override
