@@ -27,9 +27,6 @@ public class ProfileController {
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/")
     public String getProfilePage(ModelMap model, Authentication authentication) {
-        /*if (authentication == null) {
-            return "redirect:/error";
-        }*/
         UserDetailsImpl details = (UserDetailsImpl)authentication.getPrincipal();
         UserDto userFromServer = from(details.getUser());
         List<Order> orders = orderRepository.findAllByOwner(details.getUser());

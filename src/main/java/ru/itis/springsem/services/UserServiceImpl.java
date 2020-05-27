@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private static final int FIRST_NAME_MIN_LENGTH = 5;
-    private static final int LAST_NAME_MIN_LENGTH = 5;
+    private static final int FIRST_NAME_MIN_LENGTH = 3;
+    private static final int LAST_NAME_MIN_LENGTH = 3;
     private static final int PASSWORD_MIN_LENGTH = 5;
 
     @Autowired

@@ -319,22 +319,37 @@
                         <div class="col-md-6">
                             <div class="register-box">
                                 <h4 class="heading__tertiary mb--30">Register</h4>
-                                <form th:action="@{/signUp}" class="form form--login" method="post">
+                                <form th:action="@{/signUp}" class="form form--login" method="post" onsubmit="return checkFields()">
                                     <div class="form__group mb--20">
                                         <label class="form__label" for="register_first_name">First name <span class="required">*</span></label>
                                         <input type="text" class="form__input" id="register_first_name" name="register_first_name">
+                                    </div>
+                                    <div class="col-10 ml-3 border border-dark rounded bg-light">
+                                        <div id="first_name_length" style="color: grey;">First name must contain at least 3 A-Z | a-z</div>
                                     </div>
                                     <div class="form__group mb--20">
                                         <label class="form__label" for="register_last_name">Last name <span class="required">*</span></label>
                                         <input type="text" class="form__input" id="register_last_name" name="register_last_name">
                                     </div>
+                                    <div class="col-10 ml-3 border border-dark rounded bg-light">
+                                        <div id="last_name_length" style="color: grey;">Last name must contain at least 3 A-Z | a-z</div>
+                                    </div>
                                     <div class="form__group mb--20">
                                         <label class="form__label" for="register_email">Email <span class="required">*</span></label>
                                         <input type="text" class="form__input" id="register_email" name="register_email">
                                     </div>
+                                    <div class="col-10 ml-3 border border-dark rounded bg-light">
+                                        <div id="email_acceptable" style="color: grey;">E-mail is acceptable</div>
+                                    </div>
                                     <div class="form__group mb--20">
                                        <label class="form__label" for="register_password">Password <span class="required">*</span></label>
                                         <input type="password" class="form__input" id="register_password" name="register_password">
+                                    </div>
+                                    <div class="col-10 ml-3 border border-dark rounded bg-light">
+                                        <div id="0-9" style="color: grey;">Password must contain at least 1 digit</div>
+                                        <div id="Z-A" style="color: grey;">Password must contain at least 1 A-Z letter</div>
+                                        <div id="a-z" style="color: grey;">Password must contain at least 1 a-z letter</div>
+                                        <div id="length" style="color: grey;">Password must contain of at least 5 characters (1 from each group)</div>
                                     </div>
                                     <p class="privacy-text mb--20">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
                                     <div class="form__group">
@@ -985,6 +1000,10 @@
 
     <!-- Main JS -->
     <script th:src="@{/assets/js/main.js}"></script>
+
+    <!-- Register validation -->
+    <script th:src="@{/assets/js/register-validation.js}"></script>
+
 </body>
 
 </html>

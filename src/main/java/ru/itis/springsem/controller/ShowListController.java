@@ -19,9 +19,6 @@ public class ShowListController {
     @GetMapping("/users")
     public ModelAndView getPage(@RequestParam(value = "filter", required = false) String subString) {
         List<UserDto> userDtoList = userService.getAll();
-        /*if (subString != null) {
-            userService.filterByNickName(userDtoList, subString);
-        }*/
         ModelAndView mav = new ModelAndView("list");
         mav.addObject("users", userDtoList);
         return mav;

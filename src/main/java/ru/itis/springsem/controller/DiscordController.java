@@ -35,12 +35,9 @@ public class DiscordController {
             SecurityContextHolder.getContext().setAuthentication(token);
             return "redirect:/";
         } else {
-/*
-            String vremenniyPassword = UUID.randomUUID().toString();
-*/
             User newUser = User.builder()
                     .email(builder.getUser().getEmail())
-                    .password(passwordEncoder.encode(builder.getUser().getEmail().toString()))
+                    .password(passwordEncoder.encode(builder.getUser().getEmail()))
                     .firstName(builder.getUser().getUsername())
                     .role(Role.USER)
                     .build();
