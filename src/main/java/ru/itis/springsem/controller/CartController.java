@@ -5,7 +5,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.itis.springsem.dto.ProductDto;
 import ru.itis.springsem.form.ProductForm;
 import ru.itis.springsem.model.Cart;
@@ -39,6 +41,13 @@ public class CartController {
         ProductDto productDto = ProductDto.fromProductForm(productForm);
         cartService.addItem(productDto);
         modelMap.addAttribute("cart", cart);
+        return "redirect:/cart";
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping("/product/{id}/delete")
+    public String deleteProductFromCart(@PathVariable long id) {
+        cartService.deleteItem(id);
         return "redirect:/cart";
     }
 }

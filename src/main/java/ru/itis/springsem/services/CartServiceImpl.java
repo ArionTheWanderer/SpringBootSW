@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.itis.springsem.dto.ProductDto;
 import ru.itis.springsem.model.*;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,6 +58,11 @@ public class CartServiceImpl implements CartService {
                 // System.out.println(cart.getItemsQuan().size());
             }
         }
+    }
+
+    @Override
+    public void deleteItem(Long id) {
+        cart.getItemsQuan().removeIf(item -> item.getId().equals(id));
     }
 
     private CartItem createCartItem(Product product, Size size) {

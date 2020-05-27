@@ -308,7 +308,7 @@
                                                 <tbody>
                                                 <th:block th:each="itemQuan : ${cart.itemsQuan}">
                                                     <tr>
-                                                        <td class="product-remove text-left"><a href=""><i class="flaticon-cross"></i></a></td>
+                                                        <td class="product-remove text-left"><a th:href="@{${'product/' + itemQuan.id + '/delete'}}"><i class="flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
                                                             <img th:src="@{${'/assets/img/my.images/' + itemQuan.cartItem.product.smallImage}}" alt="Product Thumnail">
                                                         </td>
