@@ -1,14 +1,3 @@
-/*var username = document.getElementById("username");
-var password = document.getElementById("password");
-var length = document.getElementById("length");
-var lowerCase = document.getElementById("a-z");
-var upperCase = document.getElementById("A-Z");
-var digit = document.getElementById("0-9");
-var userLC = document.getElementById("userLC");
-var userUC = document.getElementById("userUC");
-var userLength = document.getElementById("userLength");
-var userDigit = document.getElementById("userDigit");*/
-
 // inputs
 var register_first_name = document.getElementById("register_first_name");
 var register_last_name = document.getElementById("register_last_name");
@@ -30,11 +19,6 @@ var first_name_length = document.getElementById("first_name_length");
 // last name
 var last_name_length = document.getElementById("last_name_length");
 
-/*var userReg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{3,}/;
-var userOneLC = /(?=.*[a-z])/;
-var userOneUC = /(?=.*[A-Z])/;
-var userOneDigit = /(?=.*[0-9])/;
-var userAllRight = /[0-9a-zA-Z]{3,}/;*/
 var passReg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{5,}/;
 var oneDigit = /(?=.*[0-9])/;
 var oneLowerCase = /(?=.*[a-z])/;
@@ -90,21 +74,6 @@ function foo1() {
     } else if (email_confirmed.test(x) && x.length !== 0) {
         email_acceptable.style.color = 'green';
     }
-    /*if (!userOneUC.test(x) && x.length !== 0) {
-        userUC.style.color = 'red';
-    } else if (userOneUC.test(x) && x.length !== 0) {
-        userUC.style.color = 'green';
-    }
-    if (!userOneDigit.test(x) && x.length !== 0) {
-        userDigit.style.color = 'red';
-    } else if (userOneDigit.test(x) && x.length !== 0) {
-        userDigit.style.color = 'green';
-    }
-    if (!userAllRight.test(x) && x.length !== 0) {
-        userLength.style.color = 'red';
-    } else if (userAllRight.test(x) && x.length !== 0) {
-        userLength.style.color = 'green';
-    }*/
 }
 
 function foo2() {
