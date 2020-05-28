@@ -18,7 +18,7 @@ public class ValidatorServiceImpl implements ValidatorService {
         int index = 0; // Итератор для input
         int mark = 0;
         String local = null;
-        ArrayList<String> domain = new ArrayList<String>();
+        ArrayList<String> domain = new ArrayList<>();
 
         while (index <= input.length && state != -1) {
 
@@ -154,10 +154,6 @@ public class ValidatorServiceImpl implements ValidatorService {
         if (domain.size() < 2)
             return false;
 
-        // Ограничения длины по спецификации RFC 5321
-        if (local.length() > 64)
-            return false;
-
         // Домен верхнего уровня должен состоять только из букв и быть не короче двух символов
         index = input.length - 1;
         while (index > 0) {
@@ -170,7 +166,6 @@ public class ValidatorServiceImpl implements ValidatorService {
             }
             index--;
         }
-        // System.out.println("ПРОШЕЛ ИМЭЙЛ");
         return true;
     }
 }
