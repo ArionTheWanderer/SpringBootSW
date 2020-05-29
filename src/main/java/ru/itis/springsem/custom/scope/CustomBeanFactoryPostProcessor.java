@@ -7,6 +7,6 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 public class CustomBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory factory) throws BeansException {
-        factory.registerScope("custom", new CustomScope());
+        factory.registerScope("customScope", new CustomScope());
     }
 }

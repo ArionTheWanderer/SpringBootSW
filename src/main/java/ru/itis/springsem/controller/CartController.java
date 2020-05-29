@@ -1,6 +1,7 @@
 package ru.itis.springsem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,6 +21,7 @@ import ru.itis.springsem.services.SizeService;
 
 import java.util.Optional;
 
+@Scope("customScope")
 @Controller
 public class CartController {
     @Autowired

@@ -1,6 +1,7 @@
 package ru.itis.springsem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.itis.springsem.dto.UserDto;
 import ru.itis.springsem.services.UserService;
 
+@Scope("customScope")
 @Controller
 public class EditController {
 

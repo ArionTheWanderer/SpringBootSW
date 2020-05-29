@@ -1,6 +1,7 @@
 package ru.itis.springsem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import static ru.itis.springsem.dto.UserDto.from;
 
+@Scope("customScope")
 @Controller
 public class ProfileController {
     @Autowired

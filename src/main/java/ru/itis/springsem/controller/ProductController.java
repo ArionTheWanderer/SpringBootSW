@@ -1,6 +1,7 @@
 package ru.itis.springsem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,6 +19,7 @@ import ru.itis.springsem.services.SizeService;
 import java.util.List;
 import java.util.Optional;
 
+@Scope("customScope")
 @Controller
 public class ProductController {
     @Autowired

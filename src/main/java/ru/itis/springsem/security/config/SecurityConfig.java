@@ -47,7 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return registration;
     }
 
-    @Scope(scopeName = "custom")
     @Bean(name = "customFilter")
     public Filter customFilter() {
         return new CustomFilter();

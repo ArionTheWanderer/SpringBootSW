@@ -8,37 +8,57 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CustomScope implements Scope {
-    private Map<String, Object> scopedObjects
-            = Collections.synchronizedMap(new HashMap<>());
-    private Map<String, Runnable> destructionCallbacks
-            = Collections.synchronizedMap(new HashMap<>());
+
+    private Map<String, Integer> pageVisitCounter = new HashMap<>();
+    private Map<String, Object> beans = new HashMap<>();
 
     @Override
-    public Object get(String name, ObjectFactory<?> objectFactory) {
-        if(!scopedObjects.containsKey(name)) {
-            scopedObjects.put(name, objectFactory.getObject());
+    public Object get(String s, ObjectFactory<?> objectFactory) {
+        if (beans.containsKey(s)) {
+            if (s.toLowerCase().contains("controller")) {
+                Object bean = beans.get(s);
+                pageVisitCounter.replace(s, pageVisitCounter.get(s) + 1);
+                System.out.println("Кол-во посещений " + s + " = " + pageVisitCounter.get(s));
+                return bean;
+            } else {
+                Object bean = beans.get(s);
+                return bean;
+            }
+        } else {
+
+            if (s.toLowerCase().contains("controller")) {
+                Object o = objectFactory.getObject();
+                beans.put(s, o);
+                pageVisitCounter.put(s, 1);
+                System.out.println("Кол-во посещений " + s + " = " + pageVisitCounter.get(s));
+                return o;
+            }
+            Object o = objectFactory.getObject();
+            beans.put(s, o);
+            return o;
         }
-        return scopedObjects.get(name);
     }
 
     @Override
-    public Object remove(String name) {
-        destructionCallbacks.remove(name);
-        return scopedObjects.remove(name);
+    public Object remove(String s) {
+        if (pageVisitCounter.containsKey(s)) {
+            pageVisitCounter.remove(s);
+        }
+        return beans.remove(s);
     }
 
     @Override
-    public void registerDestructionCallback(String name, Runnable runnable) {
-        destructionCallbacks.put(name, runnable);
+    public void registerDestructionCallback(String s, Runnable runnable) {
+
     }
 
     @Override
-    public Object resolveContextualObject(String name) {
+    public Object resolveContextualObject(String s) {
         return null;
     }
 
     @Override
     public String getConversationId() {
-        return "custom";
+        return null;
     }
 }

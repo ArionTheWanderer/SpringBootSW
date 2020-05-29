@@ -1,6 +1,7 @@
 package ru.itis.springsem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +12,7 @@ import ru.itis.springsem.repositories.OrderRepository;
 
 import java.util.Optional;
 
+@Scope("customScope")
 @Controller
 public class OrderDetailsController {
 

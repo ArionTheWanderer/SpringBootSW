@@ -1,6 +1,7 @@
 package ru.itis.springsem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,6 +11,7 @@ import ru.itis.springsem.form.UserRegisterForm;
 import ru.itis.springsem.services.ValidatorService;
 import ru.itis.springsem.services.UserService;
 
+@Scope("customScope")
 @Controller
 public class SignUpController {
 
